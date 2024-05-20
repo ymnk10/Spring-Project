@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class Exam04Controller {
 
     @GetMapping("")
-    public String index(Model model, UserForm form) {
+    public String index(UserForm form) {
         return "exam04";
     }
 
@@ -26,7 +26,7 @@ public class Exam04Controller {
     public String showProfile(@Validated UserForm form, BindingResult result, Model model) {
 
         if (result.hasErrors()){
-            return index(model, form);
+            return index(form);
         }
 
         User user = new User();
